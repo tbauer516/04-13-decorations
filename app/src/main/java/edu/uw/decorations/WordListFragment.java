@@ -60,6 +60,8 @@ public class WordListFragment extends Fragment implements LoaderManager.LoaderCa
 //                getActivity(), R.layout.list_item_layout, R.id.txtListItem, data);
         listView.setAdapter(adapter);
 
+        getLoaderManager().initLoader(0, null, this);
+
         ContentResolver resolver = getActivity().getContentResolver();
         String[] projection = {UserDictionary.Words.WORD, UserDictionary.Words._ID};
         Cursor cursor = resolver.query(UserDictionary.Words.CONTENT_URI,
